@@ -3,15 +3,12 @@
 
 #include "stdafx.h"
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include<algorithm>
 
 using namespace std;
 
 //函数声明
-
-
-
 
 
 int get_sum(int m, int n) 
@@ -41,6 +38,7 @@ int get_sum(int m, int n)
 	return sum;
 }
 
+
 int get_sum_new(int m, int n)
 {
 	int start = min(m, n);
@@ -56,14 +54,18 @@ int get_sum_new(int m, int n)
 	return sum;
 }
 
+
 float math_abs(float m)
 {
+	//求绝对值
 	float math_abs = (m < 0) ? -m : m;
 	return math_abs;
 }
-	 
+	
+
 float judge_score_degree(float score)
 {
+	//选择结构条件为啥只能是int型的整数？使用起来很受限制啊！！！
 	/*switch (score)
 	{
 	case 1:
@@ -74,12 +76,50 @@ float judge_score_degree(float score)
 	return 0;
 }
 
-float calcu_clc_area(double radius)
+
+struct answer
 {
-	float clcu = 2 * 3.1416*radius;
-	float area = 3.1416*pow(radius, 2);
-	return clcu, area;
+	double clcu;
+	double area;
+};
+
+answer calcu_clc_area(double radius)
+{
+	//计算给定半径的圆的周长和面积
+	if (radius < 0.0)
+	{
+		answer erro
+		{ 0.0, 0.0 };
+		return erro;//此处应该引发异常
+	}
+	double clcu = 2 * 3.1416*radius;
+	double area = 3.1416*pow(radius, 2);
+
+	answer ans
+	{
+		clcu, 	area
+	};
+	return ans;
 }
+
+
+int max(int a, int b, int c)
+{
+	int max_value;
+	a <= b ? max_value = b : max_value = a;
+	c <= max_value ? max_value = max_value : max_value = a;
+	return max_value;
+}
+
+
+double solve_eqution()
+{
+	double a, b, c, x1, x2;
+	cout << "请依次输入方程的三个系数：" << endl;
+	cin >> a >> b >> c;
+
+}
+
 
 int main()
 
@@ -104,8 +144,13 @@ int main()
 	cout << mabs << "\n";
 	*/
 	
-	float cc, float ca= calcu_clc_area(3);
-	cout << cc << ca << "\n";
+
+	//answer result = calcu_clc_area(3);
+	//cout << result; //考虑如何将result输出？
+
+	int max_value = max(2, 3, -6);
+	cout << max_value << "\n";
+
 
 	system("pause");
 	return 0;
