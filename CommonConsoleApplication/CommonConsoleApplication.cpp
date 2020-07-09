@@ -112,13 +112,23 @@ int max(int a, int b, int c)
 }
 
 
-double solve_eqution()
-{
-	double a, b, c, x1, x2;
+void solve_eqution()
+{//这个函数为何没有任何的返回？？？
+	//求解一元二次方程
+	double a, b, c;
 	cout << "请依次输入方程的三个系数：" << endl;
 	cin >> a >> b >> c;
-
+	double delta = b*b - 4 * a*c;
+	if (a - 0.0 <= 10e-4) { throw "二次项系数不为零！参数输入错误"; }
+	else if (delta < 0.0) { cout << "判别式delta小于零，没有实数解！" << endl; }
+	else if (delta - 0.0 <= 10e-7) { cout << "判别式delta等于零，有重根：" << -b / 2 / a << endl; }
+	else {
+		cout << "判别式delta=" << delta << " 大于零" << endl;
+		cout << "两个根分别为： x1 = " << (-b + sqrt(delta)) / 2 / a << " 和 x2 = " << (-b - sqrt(delta)) / 2 / a << endl;
+	}
+	//return 0;
 }
+
 
 
 int main()
@@ -148,8 +158,10 @@ int main()
 	//answer result = calcu_clc_area(3);
 	//cout << result; //考虑如何将result输出？
 
-	int max_value = max(2, 3, -6);
-	cout << max_value << "\n";
+	/*int max_value = max(2, 3, -6);
+	cout << max_value << "\n";*/
+
+	// solve_eqution();
 
 
 	system("pause");
